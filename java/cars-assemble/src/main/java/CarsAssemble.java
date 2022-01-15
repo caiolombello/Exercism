@@ -1,10 +1,17 @@
 public class CarsAssemble {
 
     public double productionRatePerHour(int speed) {
-        throw new UnsupportedOperationException("Please implement the AssemblyLine.productionRateperHour() method");
+        if (speed == 10)
+            return (speed * 221) * 0.77;
+        else if (speed == 9)
+            return (speed * 221) * 0.80;
+        else if (speed >= 5)
+            return (speed * 221) * 0.90;
+        else
+            return speed * 221;
     }
 
     public int workingItemsPerMinute(int speed) {
-        throw new UnsupportedOperationException("Please implement the AssemblyLine.workingItemsPerMinute() method");
+        return (int) (productionRatePerHour(speed) / 60);
     }
 }
