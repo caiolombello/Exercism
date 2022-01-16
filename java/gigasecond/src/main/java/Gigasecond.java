@@ -1,16 +1,19 @@
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public class Gigasecond {
-    public Gigasecond(LocalDate moment) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+class Gigasecond {
+    private final LocalDateTime now;
+    private final long GIGASECOND = 1_000_000_000L;
+
+    Gigasecond(LocalDate birthDate) {
+        this.now = birthDate.atStartOfDay();
     }
 
-    public Gigasecond(LocalDateTime moment) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+    Gigasecond(LocalDateTime birthDateTime) {
+        this.now = birthDateTime;
     }
 
-    public LocalDateTime getDateTime() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+    LocalDateTime getDateTime() {
+        return now.plusSeconds(GIGASECOND);
     }
 }
