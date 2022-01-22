@@ -1,15 +1,21 @@
+import java.util.Arrays;
 
 class Matrix {
 
+    private int[][] matrix;
+
     Matrix(String matrixAsString) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        matrix = Arrays.stream(matrixAsString.split("\n"))
+                .map(row -> Arrays.stream(row.split("\\s"))
+                        .mapToInt(Integer::parseInt).toArray())
+                        .toArray(int[][]::new);
     }
 
     int[] getRow(int rowNumber) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        return matrix[rowNumber - 1];
     }
 
     int[] getColumn(int columnNumber) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        return Arrays.stream(matrix).mapToInt(row -> row[columnNumber - 1]).toArray();
     }
 }
